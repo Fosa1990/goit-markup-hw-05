@@ -1,0 +1,663 @@
+/* цвет основного ТЕКСТА (простой текст) #757575 [ --primary-text-color ] */
+/* вотричний цвет ТЕКСТА (Заголовки)  #212121 [ --secondary-text-color ] */
+/* акцент #2196F3 (Синенький) [ --main-accent-color ] */
+/* главный цвет ФОНА #E5E5E5 (Светлый) [ --primary-bg-color ] */
+/* вторичный цвет ФОНА #F5F4FA (Серый) [ --secondary-bg-color ] */
+/* баннер цвет фона #C4C4C4 (тёмный) [ --banner-bg-color ] */
+/* Использовать: color: var(--primary-text-color); */
+
+/* ============================== Правила ============================== */
+:root {
+  --header-color: #ececec;
+  --footer-color: #2f303a;
+  --primary-text-color: #757575;
+  --secondary-text-color: #212121;
+  --third-text-color: #ffffff;
+  --button-white-color: #eeeeee;
+  --card-border-color: #eeeeee;
+  --main-accent-color: #2196f3;
+  --secondary-accent-color: #188ce8;
+  --primary-bg-color: #e5e5e5;
+  --secondary-bg-color: #f5f4fa;
+  --banner-bg-color: #c4c4c4;
+  --social-bg-color: rgba(255, 255, 255, 0.1);
+  --black-color: #000000;
+  --address-color: rgba(255, 255, 255, 0.6);
+  --primary-icon-color: #afb1b8;
+  --start-color: rgba(47, 48, 58, 0.4);
+  --end-color: rgba(47, 48, 58, 0.4);
+  --shadow-primary: 0px 3px 1px rgba(0, 0, 0, 0.1),
+    0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+  --shadow-secondary: 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  --shadow-third: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* ============================== HTML ============================== */
+
+.header {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--header-color);
+}
+
+.footer {
+  background-color: var(--footer-color);
+}
+
+/* Скрыть заголовок */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+/* ============================== INDEX ============================== */
+/* ============================== Body ============================== */
+/* ====================== Правила для всей страницы ====================== */
+body {
+  color: var(--primary-text-color);
+
+  font-family: 'roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+}
+
+/* Картинки: делаем блоковыми + убирает пространство под картинкой */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* убираем подчеркивание и убираем правый отступ у всех ссылок */
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* убираем точку, margin и padding y всех списках */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Контейнер секции Section */
+.section {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+
+/* Контейнер Div  */
+.container {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  /* outline: 2px solid tomato; */
+}
+
+/* Убрать вертикальный паддинг */
+.container.no-padding {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* ============================== Главная навигация ============================== */
+/* Контейнер главной навигации */
+.main-navigation {
+  display: flex;
+  align-items: center;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+}
+
+.site-nav-item:not(:last-child) {
+  margin-right: 50px;
+}
+
+/* Логотип */
+
+.logo {
+  width: 145px;
+  height: 31px;
+
+  font-family: 'raleway', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.19;
+  letter-spacing: 0.03em;
+
+  color: var(--main-accent-color);
+}
+
+.accent-logo-top {
+  color: #000000;
+}
+
+.nav-logo {
+  margin-right: 93px;
+}
+
+/* Навигация по страницам */
+
+.site-nav .link {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+
+  color: var(--secondary-text-color);
+}
+
+.site-nav .link:hover,
+.site-nav .link:focus {
+  color: var(--main-accent-color);
+}
+
+.site-nav .link.current {
+  color: var(--main-accent-color);
+}
+
+/* Контакты */
+
+.contacts {
+  margin-left: auto;
+}
+
+.contacts .link {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+
+  height: 16px;
+  color: var(--primary-text-color);
+}
+
+.site-nav.list:hover,
+.site-nav.list:focus {
+  color: var(--main-accent-color);
+}
+
+/* Контакты-иконки (Телефон и Конверт) */
+
+.icon-contacts {
+  margin-right: 10px;
+  fill: currentColor;
+}
+
+/* ============================== Баннер (Герой) ============================== */
+
+.hero {
+  max-width: 1600px;
+  min-height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  background-image: linear-gradient(90deg, var(--start-color), var(--end-color)),
+    url('../images/bg-hero.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  background-color: var(--banner-bg-color);
+  /* background: rgb(47, 48, 68); */
+}
+.hero-title {
+  margin: 0 auto 30px;
+  max-width: 696px;
+
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1.36;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--third-text-color);
+}
+.hero-button {
+  cursor: pointer;
+  padding: 10px 32px;
+  min-width: 200px;
+  height: 50px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  color: var(--third-text-color);
+  background-color: var(--main-accent-color);
+}
+
+.hero-button:hover,
+.hero-button:focus {
+  color: var(--third-text-color);
+  background-color: var(--secondary-accent-color);
+}
+
+/* ============================== Особенности ============================== */
+
+.features {
+  padding-top: 94px;
+}
+
+.features-list {
+  display: flex;
+}
+
+.features-item {
+  width: 270px;
+}
+
+.features-item:not(:last-child) {
+  margin-right: 30px;
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 10px;
+
+  color: var(--secondary-text-color);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+}
+
+.title-text {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  color: var(--primary-text-color);
+  font-weight: 400;
+}
+
+/* Контейнер иконок в списках */
+.features-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 120px;
+  margin-bottom: 30px;
+  background-color: var(--secondary-bg-color);
+}
+
+/* Иконки в списках */
+.features-icon {
+  fill: currentColor;
+  width: 70px;
+  height: 70px;
+}
+
+/* ============================== Чем мы занимаемся ============================== */
+.section.works {
+  padding-top: 0;
+}
+
+.section-title {
+  margin-top: 0;
+  margin-bottom: 50px;
+
+  color: var(--secondary-text-color);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.16;
+  text-align: center;
+}
+
+.works-list {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+}
+
+/* ============================== Наша команда ============================== */
+
+.section.team {
+  background-color: var(--secondary-bg-color);
+}
+
+.team-list {
+  display: flex;
+  color: var(--secondary-text-color);
+}
+
+.team-item:not(:last-child) {
+  margin-right: 30px;
+}
+
+.team-item {
+  padding-bottom: 30px;
+
+  box-shadow: var(--shadow-primary);
+  border-radius: 0px 0px 4px 4px;
+
+  background: var(--third-text-color);
+}
+
+.team-list-title {
+  padding-top: 30px;
+  padding-bottom: 16px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.team-list-name {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.18;
+  text-align: center;
+}
+
+.team-list-job {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.18;
+  text-align: center;
+  color: var(--primary-text-color);
+}
+
+/* Список социальных сетей в карточках */
+
+.team-link {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-icon-color);
+}
+
+.team-list-socials {
+  display: flex;
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
+.team-item-social:not(:last-child) {
+  width: calc((100% - 3 * 10px) / 4);
+  margin-right: 10px;
+}
+
+.icon-team {
+  fill: currentColor;
+}
+
+.team-link:hover,
+.team-link:focus {
+  color: var(--third-text-color);
+  background-color: var(--main-accent-color);
+}
+/* ============================== Постоянные клиенты ============================== */
+.clients-list {
+  display: flex;
+}
+
+.client-item {
+  width: calc((100% - 5 * 30px) / 6);
+}
+
+.client-item:not(:last-child) {
+  margin-right: 30px;
+}
+
+/* Размери ссылки для "Постоянные клиенты" */
+.link-client {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 92px;
+  border: 1px solid var(--primary-icon-color);
+  border-radius: 4px;
+  color: var(--primary-icon-color);
+}
+
+/* Ховер и фокус на ссылку (иконку и рамку) */
+.link-client:hover,
+.link-client:focus {
+  border-color: var(--main-accent-color);
+  color: var(--main-accent-color);
+  /* box-shadow: var(--shadow-third); */
+}
+
+/* Иконки клиентов наследование цвета */
+.icon-company {
+  fill: currentColor;
+}
+
+/* ============================== PORTFOLIO ============================== */
+
+/* Список фильтров */
+
+.filters {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
+.filter-item:not(:last-child) {
+  margin-right: 8px;
+}
+
+/* Кнопки фильтров */
+
+.button {
+  border: none;
+  border-radius: 4px;
+  height: 38px;
+  padding: 6px 22px;
+
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.62;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: var(--black-color);
+}
+
+.button:hover,
+.button:focus {
+  color: var(--third-text-color);
+  background-color: var(--main-accent-color);
+  box-shadow: var(--shadow-primary);
+}
+
+/* Плитки с карточками */
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -30px;
+  margin-top: -30px;
+}
+
+.card {
+  flex-basis: calc((100% - 90px) / 3);
+  margin-top: 30px;
+  margin-left: 30px;
+
+  max-width: 370px;
+}
+
+.card-link {
+  display: block;
+  padding-top: 0;
+}
+
+.card-link:hover,
+.card-link:focus {
+  box-shadow: var(--shadow-secondary);
+}
+
+.card-blank {
+  padding: 20px 24px;
+
+  border-bottom: 1px solid var(--card-border-color);
+  border-left: 1px solid var(--card-border-color);
+  border-right: 1px solid var(--card-border-color);
+}
+
+.card-name {
+  margin-top: 0;
+  margin-bottom: 4px;
+
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 2;
+  letter-spacing: 0.03em;
+  color: var(--secondary-text-color);
+}
+
+.card-text {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.03em;
+  color: var(--primary-text-color);
+}
+
+/* ============================== Подвал Footer ============================== */
+.footer {
+  display: flex;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.footer-container {
+  display: flex;
+}
+
+.footer-logo {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.address-container {
+  align-items: center;
+}
+
+.accent-logo-bot {
+  color: var(--third-text-color);
+}
+
+.address {
+  font-style: normal;
+}
+
+.address-text {
+  margin-top: 0;
+  margin-bottom: 9px;
+
+  color: var(--third-text-color);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+}
+
+/* Задаем отступ 2м li */
+.address-nav-item {
+  margin-top: 0;
+}
+
+.address-nav-item:not(:last-child) {
+  margin-bottom: 9px;
+}
+
+.address-nav .link {
+  color: var(--address-color);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+}
+
+.address-nav .link:hover,
+.address-nav .link:focus {
+  color: var(--main-accent-color);
+}
+
+/* ========== Присоеденийтесь ========== */
+.join-container {
+  align-items: center;
+  margin-left: 70px;
+}
+
+.join-text {
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 1.14;
+  text-transform: uppercase;
+
+  color: var(--third-text-color);
+}
+
+.join-list {
+  display: flex;
+}
+
+.join-item {
+  border-radius: 50%;
+  /* outline: 1px solid red; */
+}
+
+.join-item:not(:last-child) {
+  margin-right: 10px;
+}
+
+/* Список социальных сетей в футере */
+.join-link {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-icon-color);
+  background-color: var(--social-bg-color);
+  box-shadow: var(--shadow-third);
+}
+
+.join-link:hover,
+.join-link:focus {
+  color: var(--third-text-color);
+  background-color: var(--main-accent-color);
+}
+
+.icon-join {
+  fill: currentColor;
+}
