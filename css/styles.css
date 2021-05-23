@@ -304,6 +304,7 @@ ul {
   height: 120px;
   margin-bottom: 30px;
   background-color: var(--secondary-bg-color);
+  border-radius: 4px;
 }
 
 /* Иконки в списках */
