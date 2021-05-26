@@ -5,6 +5,8 @@
 /* вторичный цвет ФОНА #F5F4FA (Серый) [ --secondary-bg-color ] */
 /* баннер цвет фона #C4C4C4 (тёмный) [ --banner-bg-color ] */
 /* Использовать: color: var(--primary-text-color); */
+/* Кубик: cubic-bezier(0.4, 0, 0.2, 1) */
+/* Время 250ms */
 
 /* ============================== Правила ============================== */
 :root {
@@ -21,6 +23,8 @@
   --secondary-bg-color: #f5f4fa;
   --banner-bg-color: #c4c4c4;
   --social-bg-color: rgba(255, 255, 255, 0.1);
+  --card-bg-color: rgba(47, 48, 58, 0.8);
+  --card-portfolio-bg-color: rgba(33, 150, 243, 0.9);
   --black-color: #000000;
   --address-color: rgba(255, 255, 255, 0.6);
   --primary-icon-color: #afb1b8;
@@ -59,7 +63,7 @@
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
-/* ============================== INDEX ============================== */
+/* ============================== INDEX START ============================== */
 /* ============================== Body ============================== */
 /* ====================== Правила для всей страницы ====================== */
 body {
@@ -113,30 +117,57 @@ ul {
   padding-top: 0;
   padding-bottom: 0;
 }
-
+/* ВСЕ Анимации Ховера,Фокуса,Тени */
+:hover,
+:focus {
+  transition: color 2500ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 2500ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 2500ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 2500ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* <SVG> Анимация цвета SVG иконок */
+.animated-icon:hover,
+.animated-icon:focus {
+  transition: fill 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* =================================== HEADER START =================================== */
 /* ============================== Главная навигация ============================== */
 /* Контейнер главной навигации */
 .main-navigation {
   display: flex;
   align-items: center;
 }
-
+/* <NAV> Контейнер Навигации по Страницам = Хедера */
 .main-nav {
   display: flex;
   align-items: center;
 }
-
+/* <UL> Список Навигации по Страницам = Хедера */
 .site-nav {
   display: flex;
   align-items: center;
 }
-
+/* <LI> Пункт навигации */
+.site-nav-item {
+  position: relative;
+}
 .site-nav-item:not(:last-child) {
   margin-right: 50px;
 }
+/*  Полоска Текущей Странички - Стаитическая */
+.link.current::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 4px;
+  top: 49px;
+  left: 0;
 
-/* Логотип */
-
+  background: var(--main-accent-color);
+  border-radius: 2px;
+}
+/* <A> Логотип */
 .logo {
   width: 145px;
   height: 31px;
@@ -150,17 +181,19 @@ ul {
 
   color: var(--main-accent-color);
 }
-
-.accent-logo-top {
-  color: #000000;
-}
-
 .nav-logo {
   margin-right: 93px;
 }
-
-/* Навигация по страницам */
-
+/* <SPAN> Цвет Лого в Хедере*/
+.accent-logo-top {
+  color: #000000;
+}
+/* <UL> Список Контактов = Ховер/Фокус */
+.site-nav.list:hover,
+.site-nav.list:focus {
+  color: var(--main-accent-color);
+}
+/* <A> Навигация по страницам */
 .site-nav .link {
   font-weight: 500;
   font-size: 14px;
@@ -169,22 +202,19 @@ ul {
 
   color: var(--secondary-text-color);
 }
-
 .site-nav .link:hover,
 .site-nav .link:focus {
   color: var(--main-accent-color);
 }
-
+/* <CURRENT> Текущая Страница */
 .site-nav .link.current {
   color: var(--main-accent-color);
 }
-
-/* Контакты */
-
+/* ========== Контакты ========== */
 .contacts {
   margin-left: auto;
 }
-
+/* <A> Ссылка в Контактах Хедера */
 .contacts .link {
   display: flex;
   align-items: center;
@@ -193,21 +223,14 @@ ul {
   height: 16px;
   color: var(--primary-text-color);
 }
-
-.site-nav.list:hover,
-.site-nav.list:focus {
-  color: var(--main-accent-color);
-}
-
-/* Контакты-иконки (Телефон и Конверт) */
-
+/* <SVG> Контакты-иконки (Телефон и Конверт) */
 .icon-contacts {
   fill: currentColor;
   margin-right: 10px;
 }
-
-/* ============================== Баннер (Герой) ============================== */
-
+/* =================================== HEADER END =================================== */
+/* ============================== Баннер (Герой) START ============================== */
+/* <SECTION> Контейнер ВСЕЙ Секции Герой */
 .hero {
   max-width: 1600px;
   min-height: 600px;
@@ -223,6 +246,7 @@ ul {
   background-color: var(--banner-bg-color);
   /* background: rgb(47, 48, 68); */
 }
+/* <H1> Заголовок Секции */
 .hero-title {
   margin: 0 auto 30px;
   max-width: 696px;
@@ -234,6 +258,7 @@ ul {
   text-transform: uppercase;
   color: var(--third-text-color);
 }
+/* <BUTTON> Кнопка Секции Герой */
 .hero-button {
   cursor: pointer;
   padding: 10px 32px;
@@ -247,31 +272,29 @@ ul {
   color: var(--third-text-color);
   background-color: var(--main-accent-color);
 }
-
 .hero-button:hover,
 .hero-button:focus {
   color: var(--third-text-color);
   background-color: var(--secondary-accent-color);
 }
-
-/* ============================== Особенности ============================== */
-
+/* ============================== Баннер (Герой) END ============================== */
+/* ============================== Особенности START ============================== */
+/* <SECTION> Контейнер ВСЕЙ секции "Особености" */
 .features {
   padding-top: 94px;
 }
-
+/* <UL> Список Особеностей */
 .features-list {
   display: flex;
 }
-
+/* <LI> Пункт Особености */
 .features-item {
   width: 270px;
 }
-
 .features-item:not(:last-child) {
   margin-right: 30px;
 }
-
+/* <H3> Заголовок Особености */
 .title {
   margin-top: 0;
   margin-bottom: 10px;
@@ -282,7 +305,7 @@ ul {
   line-height: 1.14;
   text-transform: uppercase;
 }
-
+/* <P> Текст Особености */
 .title-text {
   margin-top: 0;
   margin-bottom: 0;
@@ -290,8 +313,7 @@ ul {
   font-weight: 400;
   color: var(--primary-text-color);
 }
-
-/* Контейнер иконок в списках */
+/* <DIV> Контейнер иконок в списках */
 .features-thumb {
   display: flex;
   align-items: center;
@@ -302,19 +324,19 @@ ul {
   border-radius: 4px;
   background-color: var(--secondary-bg-color);
 }
-
-/* Иконки в списках */
+/* <SVG> Иконки в списках */
 .features-icon {
   fill: currentColor;
   width: 70px;
   height: 70px;
 }
-
-/* ============================== Чем мы занимаемся ============================== */
+/* ============================== Особенности END ============================== */
+/* ============================== Чем мы занимаемся START ============================== */
+/* <SECTION> Контейнер ВСЕЙ секции */
 .section.works {
   padding-top: 0;
 }
-
+/* <H2> Заголовок "Чем мы занимаемся" */
 .section-title {
   margin-top: 0;
   margin-bottom: 50px;
@@ -325,28 +347,52 @@ ul {
   line-height: 1.16;
   text-align: center;
 }
-
+/* <UL> Список Иконок */
 .works-list {
   display: flex;
   justify-content: center;
   justify-content: space-between;
 }
+/*  =============== Карточки Оверлей START =============== */
+/* <LI> Список иконок */
+.works-item {
+  position: relative;
+}
+/* <DIV> Контейнер для надписи поверх иконки */
+.works-item-thumb {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 27px auto;
 
-/* ============================== Наша команда ============================== */
+  text-align: center;
 
+  background: var(--card-bg-color);
+}
+/* <P> Текст Оверлея */
+.works-item-img-text {
+  font-weight: 700;
+  line-height: 1.14;
+  text-transform: uppercase;
+  color: var(--third-text-color);
+}
+/*  =============== Карточки Оверлей END ===============  */
+/* ============================== Чем мы занимаемся END============================== */
+/* ============================== Наша команда START ============================== */
+/* <SECTION> Контейнер Всей секции Наша Команда */
 .section.team {
   background-color: var(--secondary-bg-color);
 }
-
+/* <UL> Список Сотрудников Камнды */
 .team-list {
   display: flex;
   color: var(--secondary-text-color);
 }
-
+/* <LI> Сотрудник Команды*/
 .team-item:not(:last-child) {
   margin-right: 30px;
 }
-
 .team-item {
   padding-bottom: 30px;
 
@@ -354,11 +400,11 @@ ul {
   box-shadow: var(--shadow-primary);
   background: var(--third-text-color);
 }
-
+/* <DIV> Контейнер Низа карточки */
 .team-list-title {
   padding: 30px 32px 16px 32px;
 }
-
+/* <H3> Название Сотрудника */
 .team-list-name {
   margin-top: 0;
   margin-bottom: 10px;
@@ -367,7 +413,7 @@ ul {
   line-height: 1.18;
   text-align: center;
 }
-
+/* <P> Должность Сотрудника */
 .team-list-job {
   margin: 0;
 
@@ -377,9 +423,8 @@ ul {
   text-align: center;
   color: var(--primary-text-color);
 }
-
-/* Список социальных сетей в карточках */
-
+/* =============== Список социальных сетей в карточках =============== */
+/* <A> Ссылка Сотрудника Команды */
 .team-link {
   display: flex;
   width: 44px;
@@ -389,41 +434,40 @@ ul {
   align-items: center;
   color: var(--primary-icon-color);
 }
-
+/* <UL> Список на соцмальные сети в карточке Сотрудника Команды */
 .team-list-socials {
   display: flex;
   padding-right: 32px;
   padding-left: 32px;
 }
-
 .team-item-social:not(:last-child) {
   width: calc((100% - 3 * 10px) / 4);
   margin-right: 10px;
 }
-
+/* <SVG> Иконка соцмальные сети в карточке Сотрудника Команды */
 .icon-team {
   fill: currentColor;
 }
-
+/* <A> Ссылка соцмальной сети в карточке Сотрудника Команды */
 .team-link:hover,
 .team-link:focus {
   color: var(--third-text-color);
   background-color: var(--main-accent-color);
 }
-/* ============================== Постоянные клиенты ============================== */
+/* ============================== Наша команда END ============================== */
+/* ============================== Постоянные клиенты START ============================== */
+/* <UL> Список Клиентов */
 .clients-list {
   display: flex;
 }
-
+/* <LI> Клиенты */
 .client-item {
   width: calc((100% - 5 * 30px) / 6);
 }
-
 .client-item:not(:last-child) {
   margin-right: 30px;
 }
-
-/* Размери ссылки для "Постоянные клиенты" */
+/* <A> Размери ссылки для "Постоянные клиенты" */
 .link-client {
   display: flex;
   justify-content: center;
@@ -433,37 +477,33 @@ ul {
   border-radius: 4px;
   color: var(--primary-icon-color);
 }
-
-/* Ховер и фокус на ссылку (иконку и рамку) */
+/* <A> Ховер и фокус на ссылку (иконку и рамку) */
 .link-client:hover,
 .link-client:focus {
   border-color: var(--main-accent-color);
   color: var(--main-accent-color);
   /* box-shadow: var(--shadow-third); */
 }
-
-/* Иконки клиентов наследование цвета */
+/* <SVG> Иконки клиентов наследование цвета */
 .icon-company {
   fill: currentColor;
 }
+/* ============================== Постоянные клиенты END ============================== */
+/* ============================== INDEX END ============================== */
 
-/* ============================== PORTFOLIO ============================== */
-
-/* Список фильтров */
-
+/* ============================== PORTFOLIO START ============================== */
+/* <UL> Список фильтров */
 .filters {
   display: flex;
   justify-content: center;
   margin-top: 0;
   margin-bottom: 50px;
 }
-
+/* <LI> Фильтры */
 .filter-item:not(:last-child) {
   margin-right: 8px;
 }
-
-/* Кнопки фильтров */
-
+/* <Button> Кнопки фильтров */
 .button {
   border: none;
   border-radius: 4px;
@@ -478,23 +518,21 @@ ul {
   letter-spacing: 0.03em;
   color: var(--black-color);
 }
-
 .button:hover,
 .button:focus {
   color: var(--third-text-color);
   background-color: var(--main-accent-color);
   box-shadow: var(--shadow-primary);
 }
-
-/* Плитки с карточками */
-
+/* ========== Плитки с карточками START ========== */
+/* <UL> Список Карточек */
 .cards {
   display: flex;
   flex-wrap: wrap;
   margin-left: -30px;
   margin-top: -30px;
 }
-
+/* <LI> Карточки */
 .card {
   flex-basis: calc((100% - 90px) / 3);
   margin-top: 30px;
@@ -502,7 +540,7 @@ ul {
 
   max-width: 370px;
 }
-
+/* <A> Ссылка Карточек */
 .card-link {
   display: block;
   padding-top: 0;
@@ -512,7 +550,44 @@ ul {
 .card-link:focus {
   box-shadow: var(--shadow-secondary);
 }
+/* ========== Плитки с карточками END ========== */
+/* ========== Карточки - Оверлей с Текстом START ========== */
+/* <DIV> Контейнер для иконки и оверлея */
+.card-thumb {
+  position: relative;
+  overflow: hidden;
+}
+/* <DIV> Контейнер Оверлея */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
+  background: var(--card-portfolio-bg-color);
+
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card:hover .card-overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+/* <P> Текст Оверлея */
+.card-overlay-text {
+  margin: 0;
+  padding: 63px 24px;
+  font-size: 18px;
+  line-height: 1.56;
+  color: var(--third-text-color);
+}
+
+/* ========== Карточки - Оверлей с Текстом END ========== */
+/* ========== Портфолио карточки - надпись по верху START ========== */
+/* <DIV> Контейнер Низу Карточки */
 .card-blank {
   padding: 20px 24px;
 
@@ -520,7 +595,7 @@ ul {
   border-left: 1px solid var(--card-border-color);
   border-right: 1px solid var(--card-border-color);
 }
-
+/* <H2> Название Карточки */
 .card-name {
   margin-top: 0;
   margin-bottom: 4px;
@@ -531,7 +606,7 @@ ul {
   letter-spacing: 0.03em;
   color: var(--secondary-text-color);
 }
-
+/* <P> Описание карточки */
 .card-text {
   margin-top: 0;
   margin-bottom: 0;
@@ -541,35 +616,36 @@ ul {
   letter-spacing: 0.03em;
   color: var(--primary-text-color);
 }
-
-/* ============================== Подвал Footer ============================== */
+/* ============================== PORTFOLIO END ============================== */
+/* ============================== Подвал Footer START ============================== */
+/* <FOOTER> */
 .footer {
   display: flex;
   padding-top: 60px;
   padding-bottom: 60px;
 }
-
+/* <DIV> Контейнер ОБЩИЙ в Футере */
 .footer-container {
   display: flex;
 }
-
+/* <A> Ссылка Логотипа в Футере */
 .footer-logo {
   margin-top: 0;
   margin-bottom: 20px;
 }
-
+/* <DIV> Контейнер Левой Части Футера */
 .address-container {
   align-items: center;
 }
-
+/* <SPAN> Цвет Акцента Лого в Футере */
 .accent-logo-bot {
   color: var(--third-text-color);
 }
-
+/* <ADDRESS> Контейнер Контактов */
 .address {
   font-style: normal;
 }
-
+/* <P> Текст Местоположения */
 .address-text {
   margin-top: 0;
   margin-bottom: 9px;
@@ -580,16 +656,14 @@ ul {
   line-height: 1.71;
   letter-spacing: 0.03em;
 }
-
-/* Задаем отступ 2м li */
+/* <LI> Контакт Футера */
 .address-nav-item {
   margin-top: 0;
 }
-
 .address-nav-item:not(:last-child) {
   margin-bottom: 9px;
 }
-
+/* <A> Ссылки Контактов Футера */
 .address-nav .link {
   color: var(--address-color);
   font-weight: 400;
@@ -597,18 +671,18 @@ ul {
   line-height: 1.71;
   letter-spacing: 0.03em;
 }
-
 .address-nav .link:hover,
 .address-nav .link:focus {
   color: var(--main-accent-color);
 }
 
 /* ========== Присоеденийтесь ========== */
+/* <DIV> Контейнер ВСЕГО Футера */
 .join-container {
   align-items: center;
   margin-left: 70px;
 }
-
+/* <P> Текст "Присоеденяйтесь" */
 .join-text {
   margin-bottom: 20px;
   font-weight: 700;
@@ -617,21 +691,19 @@ ul {
 
   color: var(--third-text-color);
 }
-
+/* <UL> Список социальных сетей */
 .join-list {
   display: flex;
 }
-
+/* <Li> социальная сеть */
 .join-item {
   border-radius: 50%;
   /* outline: 1px solid red; */
 }
-
 .join-item:not(:last-child) {
   margin-right: 10px;
 }
-
-/* Список социальных сетей в футере */
+/* <A> Список социальных сетей в футере */
 .join-link {
   display: flex;
   width: 44px;
@@ -649,7 +721,39 @@ ul {
   color: var(--third-text-color);
   background-color: var(--main-accent-color);
 }
-
+/* <SVG> Иконка социальной сети */
 .icon-join {
   fill: currentColor;
 }
+/* ============================== Подвал Footer END ============================== */
+/* =============== TEST START =============== */
+
+/* =============== TEST END =============== */
+
+/* Кубик: cubic-bezier(0.4, 0, 0.2, 1) */
+/* Время 250ms */
+
+/* .test{
+transition-property: властивість;
+transition-duration: час;
+transition-timing-function: функція розподілу часу;
+transition-delay: затримка;
+} */
+
+/* .test-animation {
+  animation: [name] [duration] [timing-function] [delay] [iteration-count]
+    [direction] [fill-mode] [play-state];
+} */
+
+/* 03-underline.css  */
+/* .i {
+  opacity: 0;
+  transform: scaleX(0);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.i:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+} */
