@@ -1,12 +1,6 @@
-/* цвет основного ТЕКСТА (простой текст) #757575 [ --primary-text-color ] */
-/* вотричний цвет ТЕКСТА (Заголовки)  #212121 [ --secondary-text-color ] */
-/* акцент #2196F3 (Синенький) [ --main-accent-color ] */
-/* главный цвет ФОНА #E5E5E5 (Светлый) [ --primary-bg-color ] */
-/* вторичный цвет ФОНА #F5F4FA (Серый) [ --secondary-bg-color ] */
-/* баннер цвет фона #C4C4C4 (тёмный) [ --banner-bg-color ] */
-/* Использовать: color: var(--primary-text-color); */
 /* Кубик: cubic-bezier(0.4, 0, 0.2, 1) */
 /* Время 250ms */
+/* Повешать анимацию: дать клас "animated" */
 
 /* ============================== Правила ============================== */
 :root {
@@ -117,19 +111,12 @@ ul {
   padding-top: 0;
   padding-bottom: 0;
 }
-/* ВСЕ Анимации Ховера,Фокуса,Тени */
-:hover,
-:focus {
-  transition: color 2500ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 2500ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 2500ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 2500ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 2500ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-/* <SVG> Анимация цвета SVG иконок */
-.animated-icon:hover,
-.animated-icon:focus {
-  transition: fill 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+/* ВСЕ Анимации Ховера,Фокуса,Тени,Цвета */
+.animated {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* =================================== HEADER START =================================== */
 /* ============================== Главная навигация ============================== */
@@ -544,6 +531,7 @@ ul {
 .card-link {
   display: block;
   padding-top: 0;
+  /* transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); */
 }
 
 .card-link:hover,
@@ -587,7 +575,7 @@ ul {
 
 /* ========== Карточки - Оверлей с Текстом END ========== */
 /* ========== Портфолио карточки - надпись по верху START ========== */
-/* <DIV> Контейнер Низу Карточки */
+/* <DIV> Контейнер Низа Карточки */
 .card-blank {
   padding: 20px 24px;
 
