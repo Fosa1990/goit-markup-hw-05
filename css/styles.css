@@ -494,7 +494,6 @@ ul {
   border-color: var(--main-accent-color);
   color: var(--main-accent-color);
   transform: rotateY(360deg);
-  /* box-shadow: var(--shadow-third); */
 }
 /* <SVG> Иконки клиентов наследование цвета */
 .icon-company {
