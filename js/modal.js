@@ -12,3 +12,8 @@
     refs.modal.classList.toggle('is-hidden');
   }
 })();
+
+
+// data-modal-open - на кнопку открытия модального окна.
+// data-modal-close - на кнопку закрытия модального окна.
+// data-modal - на бекдроп модального окна.
