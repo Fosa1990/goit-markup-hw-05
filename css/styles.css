@@ -756,6 +756,7 @@ ul {
 /* ============================== Modal Window START ==============================  */
 /* <DIV> Бэкдроп - задний фон */
 .backdrop {
+  z-index: 1000;
   position: fixed;
   top: 0;
   left: 0;
