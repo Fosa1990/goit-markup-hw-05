@@ -742,7 +742,7 @@ ul {
 .join-link:focus {
   color: var(--third-text-color);
   background-color: var(--main-accent-color);
-  transform: rotateZ(360deg);
+  transform: rotateZ(-360deg);
 }
 /* <SVG> Иконка социальной сети */
 .icon-join {
@@ -805,6 +805,13 @@ ul {
   border: 1px solid var(--modal-border-color);
 
   cursor: pointer;
+
+  transform: rotateZ(0deg);
+  transition: transform 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-close:hover,
+.modal-close:focus {
+  transform: rotateZ(360deg);
 }
 .icon-modal-close {
   fill: currentColor;
