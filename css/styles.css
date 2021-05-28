@@ -187,6 +187,8 @@ ul {
   letter-spacing: 0.02em;
 
   color: var(--secondary-text-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .site-nav .link:hover,
 .site-nav .link:focus {
@@ -358,18 +360,21 @@ ul {
 }
 /* <DIV> Контейнер для надписи поверх иконки */
 .works-item-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 27px auto;
-
-  text-align: center;
+  padding: 27px;
 
   background: var(--card-bg-color);
 }
 /* <P> Текст Оверлея */
 .works-item-img-text {
+  margin: 0;
   font-weight: 700;
   line-height: 1.14;
   text-transform: uppercase;
